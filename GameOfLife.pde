@@ -32,13 +32,13 @@ public void draw () {
       if(countNeighbors(r,c) == 3){
         buffer[r][c] = true;
       }
-      if(countNeighbors(r,c) == 2 && buttons[r][c].alive == true){
+      else if(countNeighbors(r,c) == 2 && buttons[r][c].getLife() == true){
         buffer[r][c] = true;
       }
       else{
         buffer[r][c] = false;
       }
-      buttons[r][c] = new Life(r, c);
+      buttons[r][c].draw();
     } //makes it go crazy
   }
 
@@ -91,16 +91,16 @@ public boolean isValid(int r, int c) {
 public int countNeighbors(int row, int col) {
   int neighbors = 0; 
   //alternate
-  //for (int r = row-1; r <= row+1; r++) { //start at row to the left 
+  // for (int r = row-1; r <= row+1; r++) { //start at row to the left 
   //  for (int c = col-1; c <= col+1; c++) { //end to the row of right
   //    if (isValid(r, c) == true && buttons[r-1][c].getLife() == true) { //same applies to col
   //      neighbors = neighbors + 1; //start from top to bottom
   //    }
   //  }
-  //}
-  //if (buttons[row][col].getLife() == true) { //same applies to col
+  // }
+  // if (buttons[row][col].getLife() == true) { //same applies to col
   //  neighbors = neighbors - 1; //start from top to bottom
-  //} 
+  // } 
   //added longer code cus feels safer to do so lol
   if(isValid(row-1,col-1) && buttons[row-1][col-1].getLife() ==true)
     neighbors++;
