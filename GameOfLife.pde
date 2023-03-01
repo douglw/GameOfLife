@@ -80,8 +80,8 @@ public void copyFromButtonsToBuffer() {
 }
 
 public boolean isValid(int r, int c) {
-  if (r >= 0 && c >= 0) {
-    if (r < NUM_ROWS && c < NUM_COLS) {
+  if (r >= 0 && r < NUM_ROWS) {
+    if (c >= 0 && c < NUM_COLS) {
       return true;
     }
   }
@@ -90,6 +90,7 @@ public boolean isValid(int r, int c) {
 
 public int countNeighbors(int row, int col) {
   int neighbors = 0; 
+  //alternate
   //for (int r = row-1; r <= row+1; r++) { //start at row to the left 
   //  for (int c = col-1; c <= col+1; c++) { //end to the row of right
   //    if (isValid(r, c) == true && buttons[r-1][c].getLife() == true) { //same applies to col
@@ -100,6 +101,7 @@ public int countNeighbors(int row, int col) {
   //if (buttons[row][col].getLife() == true) { //same applies to col
   //  neighbors = neighbors - 1; //start from top to bottom
   //} 
+  //added longer code cus feels safer to do so lol
   if(isValid(row-1,col-1) && buttons[row-1][col-1].getLife() ==true)
     neighbors++;
   if(isValid(row-1,col) && buttons[row-1][col].getLife()==true)
